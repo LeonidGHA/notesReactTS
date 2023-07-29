@@ -18,3 +18,9 @@
     @apply p-8 h-full;
   }
 }
+
+@layer components {
+  .blockScroll {
+    @apply overflow-hidden;
+  }
+}

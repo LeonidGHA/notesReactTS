@@ -9,7 +9,7 @@ interface IModalProps {
   classNameModal?: string;
 }
 
-const Modal: FC<IModalProps> = ({ onClick, children }) => {
+export const Modal: FC<IModalProps> = ({ onClick, children }) => {
   useEffect(() => {
     document.body.classList.add("blockScroll");
     document.addEventListener("keydown", onClickEscClose);
@@ -34,8 +34,11 @@ const Modal: FC<IModalProps> = ({ onClick, children }) => {
 
   return modal
     ? createPortal(
-        <div id="backdrop" className="" onClick={onClickBackdropClose}>
-          <div className="">
+        <div
+          className="fixed bg-slate-300/50 top-0 left-0 w-screen h-screen flex items-center justify-center"
+          onClick={onClickBackdropClose}
+        >
+          <div className="bg-white p-5 flex flex-col">
             <button
               type="button"
               aria-label="Кнопка закриття модального вікна"
@@ -51,5 +54,3 @@ const Modal: FC<IModalProps> = ({ onClick, children }) => {
       )
     : null;
 };
-
-export default Modal;
