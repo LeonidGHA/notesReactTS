@@ -1,12 +1,15 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialFilterReduxState: string = "Active";
+type initialFilterStatetype = "Active" | "Archive";
+
+const initialFilterReduxState = "Active";
 
 const filterSlice = createSlice({
   name: "filter",
-  initialState: initialFilterReduxState,
+  initialState: initialFilterReduxState as initialFilterStatetype,
   reducers: {
-    setFilterNotes: (_, { payload }: PayloadAction<string>) => payload,
+    setFilterNotes: (_, { payload }: PayloadAction<"Active" | "Archive">) =>
+      payload,
   },
 });
 

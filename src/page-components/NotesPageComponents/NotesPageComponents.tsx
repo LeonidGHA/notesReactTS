@@ -1,7 +1,9 @@
 import { FC } from "react";
 
 import { AllNotesList } from "src/components/AllNotesList/AllNotesList";
-import useAppSelector from "src/hooks/useAppSelector";
+import { FilrersNotes } from "src/components/FilrerNotes";
+
+import { useAppSelector } from "src/hooks/useAppSelector";
 import { selectNotesByFilter } from "src/redux/notes/notes-selectors";
 
 export const NotesPageComponents: FC = () => {
@@ -9,6 +11,7 @@ export const NotesPageComponents: FC = () => {
 
   return (
     <>
+      <FilrersNotes />
       <AllNotesList userNotes={userNotes} />
     </>
   );

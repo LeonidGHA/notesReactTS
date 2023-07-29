@@ -2,8 +2,10 @@ import { createSelector } from "@reduxjs/toolkit";
 
 import { RootState } from "../store";
 
+import { selectFilterNotes } from "../filter/filter-selectors";
+
 export const selectAllNotes = (state: RootState) => state.notes;
-export const selectFilterNotes = (state: RootState) => state.filterNotes;
+// export const selectFilterNotes = (state: RootState) => state.filterNotes;
 
 export const selectNotesByFilter = createSelector(
   [selectAllNotes, selectFilterNotes],
