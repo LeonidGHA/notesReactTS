@@ -16,22 +16,5 @@ const notesSlice = createSlice({
 });
 
 export default notesSlice.reducer;
-// addNote: {
-//   reducer: (store, { payload }) => {
-//     if (isDublicate(payload, store)) {
-//       alert(`${payload.title}-${payload.author} is already exist`);
-//       return;
-//     }
-//     store.push(payload);
-//   },
-//   prepare: (data) => {
-//     return {
-//       payload: {
-//         ...data,
-//         id: nanoid(),
-//       },
-//     };
-//   },
-// },
 
 export const { removeNote } = notesSlice.actions;
