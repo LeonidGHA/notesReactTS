@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply h-full;
+  }
+  body {
+    @apply h-full font-sans font-normal;
+  }
+
+  #root {
+    @apply h-full;
+  }
+
+  main {
+    @apply p-8 h-full;
+  }
+}
