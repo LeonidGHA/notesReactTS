@@ -1,19 +1,27 @@
-// import { summaryNotesItem } from "../summaryNotesItem/summaryNotesItem";
-
 import { FC } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-export const summaryNotesList: FC = () => {
-  // const markup = arhchiveNotes
-  //   .map((note) => {
-  //     return summaryNotesItem(note);
-  //   })
-  //   .join("");
+import { SummaryNotesItem } from "../SummaryNotesItem";
 
-  // element.innerHTML = `<li class=" grid grid-cols-3 gap-4 bg-slate-400 p-5 rounded ">
-  //           <span class="pl-10">Note Category</span>
-  //           <span class="text-center">Active</span>
-  //           <span class="text-center">Archived</span>
-  //         </li>`;
-  // element.innerHTML += markup;
-  return <div></div>;
+import { ISummaryNote } from "src/types/commonTypes";
+
+interface ISummaryNotesListProps {
+  summaryNotes: ISummaryNote[];
+}
+
+export const SummaryNotesList: FC<ISummaryNotesListProps> = ({
+  summaryNotes,
+}) => {
+  return (
+    <ul className=" flex flex-col gap-4 mb-10 h-[30vh] ">
+      <li className=" grid grid-cols-3 gap-4 bg-slate-400 p-5 rounded ">
+        <span className="pl-10">Note Category</span>
+        <span className="text-center">Active</span>
+        <span className="text-center">Archived</span>
+      </li>
+      {summaryNotes.map((note) => (
+        <SummaryNotesItem note={note} key={uuidv4()} />
+      ))}
+    </ul>
+  );
 };
