@@ -13,3 +13,9 @@ export interface IDataNoteForm {
   category: string;
   content: string;
 }
+
+export interface ISummaryNote {
+  category: string;
+  active: number;
+  archive: number;
+}

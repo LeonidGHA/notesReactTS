@@ -49,11 +49,20 @@ const notesSlice = createSlice({
       },
     },
     removeNote: (store, { payload }: PayloadAction<string>) => {
-      store.filter((note) => note.id !== payload);
+      return store.filter((note) => note.id !== payload);
+    },
+    toggleArchiveNote: (store, { payload }: PayloadAction<string>) => {
+      store.map((note) => {
+        if (note.id === payload) {
+          note.archive = !note.archive;
+        }
+        return note;
+      });
     },
   },
 });
 
 export default notesSlice.reducer;
 
-export const { removeNote, addNote, editNote } = notesSlice.actions;
+export const { removeNote, addNote, editNote, toggleArchiveNote } =
+  notesSlice.actions;

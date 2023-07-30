@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 
 import { AllNotesList } from "src/components/AllNotesList/AllNotesList";
 import { FilrersNotes } from "src/components/FilrerNotes";
+import { SummaryNotesList } from "src/components/SummaryNotesList";
 import { FormNote } from "src/components/forms/FormNote";
 import { Button } from "src/ui-kit/Button";
 import { Modal } from "src/ui-kit/Modal/Modal";
@@ -12,13 +13,17 @@ import { useToggleOpenModal } from "src/hooks/useToggleOpenModal";
 
 import { addNote, editNote } from "src/redux/notes/notes-slice";
 
-import { selectNotesByFilter } from "src/redux/notes/notes-selectors";
+import {
+  selectNotesByFilter,
+  summaryNotesData,
+} from "src/redux/notes/notes-selectors";
 
 import { IDataNoteForm } from "src/types/commonTypes";
 
 export const NotesPageComponents: FC = () => {
   const dispatch = useAppDispatch();
   const userNotes = useAppSelector(selectNotesByFilter);
+  const summaryNotes = useAppSelector(summaryNotesData);
   const { isOpen, toggleOpen } = useToggleOpenModal();
   const [noteId, setNoteId] = useState<string | null>(null);
 
@@ -51,6 +56,7 @@ export const NotesPageComponents: FC = () => {
       >
         Create Notes
       </Button>
+      <SummaryNotesList summaryNotes={summaryNotes} />
 
       {isOpen && (
         <Modal onClick={toggleOpen}>

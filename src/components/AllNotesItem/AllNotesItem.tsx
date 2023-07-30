@@ -3,6 +3,9 @@ import { FC } from "react";
 import { pathNoteImg } from "../../utils/pathNoteImg";
 import { renderFormatDate } from "../../utils/formatDate";
 
+import { useAppDispatch } from "src/hooks/useAppDispatch";
+import { removeNote, toggleArchiveNote } from "src/redux/notes/notes-slice";
+
 import { IUserNote } from "src/types/commonTypes";
 
 interface IAllNaolteItemProps {
@@ -16,6 +19,7 @@ export const AllNotesItem: FC<IAllNaolteItemProps> = ({
   openModal,
   getNoteId,
 }) => {
+  const dispatch = useAppDispatch();
   const { id, name, created, category, content, dates, archive } = note;
   return (
     <li className="grid grid-cols-14 gap-4 px-5 py-2 rounded bg-blue-200">
@@ -49,6 +53,7 @@ export const AllNotesItem: FC<IAllNaolteItemProps> = ({
           width="24px"
           height="24px"
           className="h-6 cursor-pointer"
+          onClick={() => dispatch(toggleArchiveNote(id))}
         />
       </div>
       <div className="flex  items-center h-6" aria-label="delete note button">
@@ -57,6 +62,7 @@ export const AllNotesItem: FC<IAllNaolteItemProps> = ({
           width="24px"
           height="24px"
           className="h-6 cursor-pointer"
+          onClick={() => dispatch(removeNote(id))}
         />
       </div>
     </li>
