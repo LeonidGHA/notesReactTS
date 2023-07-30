@@ -7,3 +7,9 @@ export interface IUserNote {
   dates: string;
   archive: boolean;
 }
+
+export interface IDataNoteForm {
+  name: string;
+  category: string;
+  content: string;
+}

@@ -35,15 +35,15 @@ export const Modal: FC<IModalProps> = ({ onClick, children }) => {
   return modal
     ? createPortal(
         <div
-          className="fixed bg-slate-300/50 top-0 left-0 w-screen h-screen flex items-center justify-center"
+          className="px-8 fixed bg-slate-300/50 top-0 left-0 w-screen h-screen flex items-center justify-center"
           onClick={onClickBackdropClose}
         >
-          <div className="bg-white p-5 flex flex-col">
+          <div className=" bg-white p-5 flex flex-col">
             <button
               type="button"
-              aria-label="Кнопка закриття модального вікна"
+              aria-label="Button for closing the modal window"
               onClick={onClick}
-              className=""
+              className="ml-auto mb-5"
             >
               [x]
             </button>
