@@ -7,9 +7,15 @@ import { IUserNote } from "src/types/commonTypes";
 
 interface IAllNaolteItemProps {
   note: IUserNote;
+  openModal: () => void;
+  getNoteId: (id: string) => void;
 }
 
-export const AllNotesItem: FC<IAllNaolteItemProps> = ({ note }) => {
+export const AllNotesItem: FC<IAllNaolteItemProps> = ({
+  note,
+  openModal,
+  getNoteId,
+}) => {
   const { id, name, created, category, content, dates, archive } = note;
   return (
     <li className="grid grid-cols-14 gap-4 px-5 py-2 rounded bg-blue-200">
@@ -31,8 +37,10 @@ export const AllNotesItem: FC<IAllNaolteItemProps> = ({ note }) => {
           src={pathNoteImg("Edit")}
           width="24px"
           height="24px"
-          data-edit="${id}"
           className="h-6 cursor-pointer"
+          onClick={() => {
+            openModal(), getNoteId(id);
+          }}
         />
       </div>
       <div className="flex  items-center" aria-label="archive note button">
@@ -40,7 +48,6 @@ export const AllNotesItem: FC<IAllNaolteItemProps> = ({ note }) => {
           src={pathNoteImg(archive ? "ArchiveRemove" : "ArchiveAdd")}
           width="24px"
           height="24px"
-          data-archive={id}
           className="h-6 cursor-pointer"
         />
       </div>
@@ -49,7 +56,6 @@ export const AllNotesItem: FC<IAllNaolteItemProps> = ({ note }) => {
           src={pathNoteImg("Delete")}
           width="24px"
           height="24px"
-          data-delete={id}
           className="h-6 cursor-pointer"
         />
       </div>
