@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 
 import { AllNotesList } from "src/components/AllNotesList/AllNotesList";
 import { FilrersNotes } from "src/components/FilrerNotes";
-import { SummaryNotesList } from "src/components/SummaryNotesList";
+import { SummaryNotesList } from "src/components/SuaryNotesList";
 import { FormNote } from "src/components/forms/FormNote";
 import { Button } from "src/ui-kit/Button";
 import { Modal } from "src/ui-kit/Modal/Modal";
