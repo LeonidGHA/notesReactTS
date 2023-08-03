@@ -1,9 +1,10 @@
 import { ChangeEvent, FC } from "react";
+import cn from "classnames";
 
-interface IInputProps {
+export interface IInputProps {
   value: string;
   name: string;
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   classNameLabel?: string;
   classNameInput?: string;
   placeholder?: string;
@@ -29,7 +30,10 @@ export const Input: FC<IInputProps> = ({
         name={name}
         onChange={handleChange}
         type="text"
-        className={classNameInput}
+        className={cn(
+          "border-slate-400 border w-full rounded p-2",
+          classNameInput
+        )}
         placeholder={placeholder}
         required={required}
       />

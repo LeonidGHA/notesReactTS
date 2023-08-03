@@ -29,19 +29,12 @@ export const FormNote: FC<IFormNote> = ({ onSubmit }) => {
   const { name, content, category } = state;
   return (
     <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-      <Input
-        value={name}
-        name="name"
-        classNameInput="border-slate-400 border w-full rounded"
-        handleChange={handleChange}
-        required
-      >
+      <Input value={name} name="name" handleChange={handleChange} required>
         Name Note
       </Input>
       <Input
         value={content}
         name="content"
-        classNameInput="border-slate-400 border w-full rounded"
         handleChange={handleChange}
         required
       >

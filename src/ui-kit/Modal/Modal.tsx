@@ -1,6 +1,8 @@
 import { FC, ReactNode, useEffect } from "react";
 import { createPortal } from "react-dom";
-
+const body = document.querySelector<Element>("body");
+const modalDiv = document.createElement("div");
+body?.append(modalDiv);
 const modal = document.querySelector<Element>("#modal");
 
 interface IModalProps {
@@ -35,7 +37,7 @@ export const Modal: FC<IModalProps> = ({ onClick, children }) => {
   return modal
     ? createPortal(
         <div
-          className="px-8 fixed bg-slate-300/50 top-0 left-0 w-screen h-screen flex items-center justify-center"
+          className="px-8 fixed bg-slate-300/50 z-10 top-0 left-0 w-screen h-screen flex items-center justify-center"
           onClick={onClickBackdropClose}
         >
           <div className=" bg-white p-5 flex flex-col">

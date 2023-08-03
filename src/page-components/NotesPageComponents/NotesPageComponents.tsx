@@ -51,7 +51,8 @@ export const NotesPageComponents: FC = () => {
         getNoteId={getNoteId}
       />
       <Button
-        className="flex justify-center px-4 py-2 w-full max-w-[140px] ml-auto bg-slate-300 rounded mb-10"
+        className=" ml-auto  rounded mb-10"
+        size="medium"
         onClick={toggleOpen}
       >
         Create Notes
